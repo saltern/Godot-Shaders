@@ -8,7 +8,8 @@ Has versions for Godot 3 and 4.
 * Godot 3: AdvancedPalette_Godot3.gdshader
 * Godot 4: AdvancedPalette_Godot4.gdshader
 
-An alternative version is also provided, which allows for multiple palettes in a single PNG:
+An alternative version is also provided, which allows for multiple palettes in a single PNG.
+
 Key differences:
 
 * Each row in a palette image file is now considered to be a separate palette.
