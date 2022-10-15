@@ -16,9 +16,10 @@ Key differences:
 * Parameter added: "Palette Number". Use it to select palettes from the provided file.
 * Parameter removed: "Disable Processing". Replaced by setting "Palette Number" to -1.
 
-To adapt pre-existing palette images, make sure all of the colors for a single palette are on the same row.
-You can still swap out the image file for another with either single or multiple different palettes.
+To adapt pre-existing palette images, make sure all of the colors for a single palette are on the same row. You can still swap out the image file for another with either single or multiple different palettes.
+
 If you need to switch between palettes with different numbers of colors, you will have to either use different textures with the correct sizes, or repeat colors as necessary. Transparent pixels are still counted as colors in the palette!
+
 Godot 3 and 4 files are provided for this variant as well.
 
 * Godot 3: AdvancedMultiPal_Godot3.gdshader
