@@ -1,5 +1,4 @@
 //	Godot 4 Advanced Palette Shader
-//	by ALT_OhDude
 
 shader_type canvas_item;
 #pragma disable_preprocessor

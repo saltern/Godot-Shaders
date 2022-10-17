@@ -1,5 +1,4 @@
-//	Godot 3 Advanced Palette Shader
-//	by ALT_OhDude
+//	Godot 3 Advanced Palette Shader (MultiPal ver.)
 
 shader_type canvas_item;
 
