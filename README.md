@@ -5,8 +5,8 @@ A repository for custom Godot shaders, updated as I write new ones I think might
 A shader enabling the use of 256-color palettes, featuring color cycling with optional blending.
 Has versions for Godot 3 and 4.
 
-* Godot 3: AdvancedPalette_Godot3.gdshader
-* Godot 4: AdvancedPalette_Godot4.gdshader
+* Godot 3: Shaders/AdvancedPalette_Godot3.gdshader
+* Godot 4: Shaders/AdvancedPalette_Godot4.gdshader
 
 An alternative version is also provided, which allows for multiple palettes in a single PNG.
 
@@ -22,5 +22,7 @@ If you need to switch between palettes with different numbers of colors, you wil
 
 Godot 3 and 4 files are provided for this variant as well.
 
-* Godot 3: AdvancedMultiPal_Godot3.gdshader
-* Godot 4: AdvancedMultiPal_Godot4.gdshader
+* Godot 3: Shaders/AdvancedMultiPal_Godot3.gdshader
+* Godot 4: Shaders/AdvancedMultiPal_Godot4.gdshader
+
+Demo projects for both versions of the shader are available under the "Demos" directory.
