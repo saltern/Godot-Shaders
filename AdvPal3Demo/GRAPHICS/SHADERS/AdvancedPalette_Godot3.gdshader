@@ -1,18 +1,20 @@
-//	Godot 3 Advanced Palette Shader (MultiPal ver.)
+//	Godot 3 Advanced Palette Shader
 
 shader_type canvas_item;
 
-uniform sampler2D	paletteTexture;
-uniform float		paletteNumber: hint_range(-1, 100, 1);
+uniform bool		disableProcessing;
+
+uniform sampler2D	palette;
 
 uniform int			cycleMode: hint_range(0, 2, 1);
 uniform float		cycleRate: hint_range(-120, 120, 1);
-uniform float		cycleOffset: hint_range(0, 256, 0.01);
+uniform float		cycleOffset: hint_range(0, 256, 0.1);
 uniform bool		colorBlending;
 
 vec4 applyPalette(vec4 sprTex)
 {	// Palette data
-	ivec2	palSize	 = textureSize(paletteTexture, 0);
+	ivec2	palSize	 = textureSize(palette, 0);
+	int		palCount = palSize.x * palSize.y;
 	
 	// Color channel data
 	float idxPalette = floor(sprTex.r * 256.00);	// Color index
@@ -49,14 +51,9 @@ vec4 applyPalette(vec4 sprTex)
 				break;
 		}
 		// Wrap indices back within palette bounds, skipping index 0
-		idxPalette = mod(idxPalette - 1.0, float(palSize.x - 1)) + 1.0;
-		idxCycNext = mod(idxCycNext - 1.0, float(palSize.x - 1)) + 1.0;
+		idxPalette = mod(idxPalette - 1.0, float(palCount - 1)) + 1.0;
+		idxCycNext = mod(idxCycNext - 1.0, float(palCount - 1)) + 1.0;
 	}
-	
-	// Multiple palettes
-	float palAdd = mod(floor(paletteNumber), float(palSize.y)) * float(palSize.x);
-	idxPalette += palAdd;
-	idxCycNext += palAdd;
 	
 	// Palette sampler UV
 	float yxUV = idxPalette / float(palSize.x);
@@ -69,7 +66,7 @@ vec4 applyPalette(vec4 sprTex)
 	if (!colorBlending)
 	{
 		// Unblended result
-		return texture(paletteTexture, palUV);
+		return texture(palette, palUV);
 	}
 	else
 	{
@@ -82,15 +79,15 @@ vec4 applyPalette(vec4 sprTex)
 		vec2 nxtUV = vec2(nxUV, nyUV);
 		
 		// Blend result
-		vec4 pixel	= texture(paletteTexture, palUV);
-		vec4 next	= texture(paletteTexture, nxtUV);
+		vec4 pixel	= texture(palette, palUV);
+		vec4 next	= texture(palette, nxtUV);
 		return mix(pixel, next, fract(idxCycle));
 	}
 }
 
 void fragment()
 {
-	if (paletteNumber > -1.0)
+	if (!disableProcessing)
 	{
 		COLOR = applyPalette(texture(TEXTURE, UV));
 	}

@@ -1,0 +1,493 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://GRAPHICS/SHADERS/AdvancedPalette_Godot3.gdshader" type="Shader" id=1]
+[ext_resource path="res://GRAPHICS/SHADERS/AdvancedMultiPal_Godot3.gdshader" type="Shader" id=2]
+[ext_resource path="res://GRAPHICS/SPRITES/PALETTES/BURN.PNG" type="Texture" id=3]
+[ext_resource path="res://GRAPHICS/SPRITES/PALETTES/ROBOT_PAL3.png" type="Texture" id=4]
+[ext_resource path="res://GRAPHICS/SPRITES/ROBOT.png" type="Texture" id=5]
+[ext_resource path="res://GRAPHICS/SPRITES/PALETTES/ROBOT_PAL1.png" type="Texture" id=6]
+[ext_resource path="res://GRAPHICS/SPRITES/PALETTES/ROBOT_PAL_MULTI.png" type="Texture" id=7]
+[ext_resource path="res://GRAPHICS/SPRITES/PALETTES/ROBOT_PAL2.png" type="Texture" id=8]
+[ext_resource path="res://GRAPHICS/SPRITES/PALETTES/ROBOT_PAL0.png" type="Texture" id=9]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/disableProcessing = false
+shader_param/cycleMode = 1
+shader_param/cycleRate = 5.0
+shader_param/cycleOffset = null
+shader_param/colorBlending = true
+shader_param/palette = ExtResource( 9 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/paletteNumber = 0.0
+shader_param/cycleMode = 1
+shader_param/cycleRate = 5.0
+shader_param/cycleOffset = null
+shader_param/colorBlending = true
+shader_param/paletteTexture = ExtResource( 7 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Burn"
+length = 1.5
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robot:material:shader_param/disableProcessing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robot:material:shader_param/palette")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 9 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robot:material:shader_param/cycleMode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robot:material:shader_param/cycleRate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 5.0, 25.0, 5.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Robot_MultiPal:material:shader_param/paletteTexture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 7 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Robot_MultiPal:material:shader_param/paletteNumber")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Robot_MultiPal:material:shader_param/cycleMode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Robot_MultiPal:material:shader_param/cycleRate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 5.0, 25.0, 5.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Default"
+length = 0.001
+step = 60.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robot:material:shader_param/disableProcessing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robot:material:shader_param/palette")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robot:material:shader_param/cycleMode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robot:material:shader_param/cycleRate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Robot_MultiPal:material:shader_param/paletteTexture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Robot_MultiPal:material:shader_param/paletteNumber")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Robot_MultiPal:material:shader_param/cycleMode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Robot_MultiPal:material:shader_param/cycleRate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robot:material:shader_param/disableProcessing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robot:material:shader_param/palette")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 9 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robot:material:shader_param/cycleMode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robot:material:shader_param/cycleRate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Robot_MultiPal:material:shader_param/paletteTexture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Robot_MultiPal:material:shader_param/paletteNumber")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Robot_MultiPal:material:shader_param/cycleMode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Robot_MultiPal:material:shader_param/cycleRate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Swap"
+length = 6.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robot:material:shader_param/disableProcessing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robot:material:shader_param/palette")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robot:material:shader_param/cycleMode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robot:material:shader_param/cycleRate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Robot_MultiPal:material:shader_param/paletteTexture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Robot_MultiPal:material:shader_param/paletteNumber")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 1.0, 2.0, 3.0, 4.0, -1.0, 4.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Robot_MultiPal:material:shader_param/cycleMode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Robot_MultiPal:material:shader_param/cycleRate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5.0 ]
+}
+
+[node name="Demo" type="Node2D"]
+
+[node name="Robot" type="Sprite" parent="."]
+material = SubResource( 1 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Robot_MultiPal" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 200, 0 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Default"
+anims/Burn = SubResource( 3 )
+anims/Default = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+anims/Swap = SubResource( 6 )
+
+[node name="Description" type="RichTextLabel" parent="."]
+margin_left = 380.0
+margin_right = 897.0
+margin_bottom = 209.0
+bbcode_enabled = true
+bbcode_text = "The robot on the left uses [color=#ffa030]AdvancedPalette_Godot4.gdshader[/color].
+To switch palettes, drag and drop the files under:
+[i]res://GRAPHICS/SPRITES/PALETTES[/i]
+Into the node's [color=#ffa030]Material -> Shader -> Palette -> Palette[/color] uniform.
+
+The robot on the right uses [color=#30a0ff]AdvancedMultiPal_Godot4.gdshader[/color].
+It's been assigned a PNG file containing multiple palettes, one per row.
+To switch between them, either drag and drop palettes like with the other node,
+or make use of the [color=#30a0ff]Material -> Shader -> Palette -> Palette Number[/color] uniform.
+
+Both sprites have cycling enabled at a rate of 5 FPS, with color blending enabled.
+The AnimationPlayer node has a few effects you can check out (note the [color=#91ad50]Discrete [/color]update mode in each animation track), and you can play around with the shader's parameters as well."
+text = "The robot on the left uses AdvancedPalette_Godot4.gdshader.
+To switch palettes, drag and drop the files under:
+res://GRAPHICS/SPRITES/PALETTES
+Into the node's Material -> Shader -> Palette -> Palette uniform.
+
+The robot on the right uses AdvancedMultiPal_Godot4.gdshader.
+It's been assigned a PNG file containing multiple palettes, one per row.
+To switch between them, either drag and drop palettes like with the other node,
+or make use of the Material -> Shader -> Palette -> Palette Number uniform.
+
+Both sprites have cycling enabled at a rate of 5 FPS, with color blending enabled.
+The AnimationPlayer node has a few effects you can check out (note the Discrete update mode in each animation track), and you can play around with the shader's parameters as well."
+scroll_active = false
+__meta__ = {
+"_edit_lock_": true
+}
