@@ -10,6 +10,6 @@ config_version=5
 
 [application]
 
-config/name="AdvPal4Demo"
+config/name="Advanced Palette Demo (Godot 4)"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
