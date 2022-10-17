@@ -93,7 +93,6 @@ void fragment()
 {
 	if (!disableProcessing)
 	{
-		COLOR = applyPalette(texture(TEXTURE, UV));
-		COLOR *= modulate;
+		COLOR = applyPalette(texture(TEXTURE, UV)) * modulate;
 	}
 }

@@ -3,7 +3,6 @@
 shader_type canvas_item;
 
 uniform bool		disableProcessing;
-uniform vec4		modulate: hint_color;
 
 uniform sampler2D	palette;
 
@@ -91,7 +90,6 @@ void fragment()
 	if (!disableProcessing)
 	{
 		COLOR = applyPalette(texture(TEXTURE, UV));
-		COLOR *= modulate;
 	}
 	else
 	{

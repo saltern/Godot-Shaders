@@ -100,7 +100,6 @@ void fragment()
 {
 	if (paletteNumber > -1.0)
 	{
-		COLOR = applyPalette(texture(TEXTURE, UV));
-		COLOR *= modulate;
+		COLOR = applyPalette(texture(TEXTURE, UV)) * modulate;
 	}
 }
