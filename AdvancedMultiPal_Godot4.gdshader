@@ -62,16 +62,11 @@ vec4 applyPalette(vec4 sprTex)
 	}
 	
 	// Multiple palettes
-	float palAdd = mod(floor(paletteNumber), float(palSize.y)) * float(palSize.x);
-	idxPalette += palAdd;
-	idxCycNext += palAdd;
-	
-	// Palette sampler UV
-	float yxUV = idxPalette / float(palSize.x);
+	float palAdd = mod(floor(paletteNumber), float(palSize.y));
 	
 	// Sample palette from center of pixel (maximum result accuracy)
-	float xUV = fract(yxUV) + (0.5 / float(palSize.x));
-	float yUV = floor(yxUV) / float(palSize.y) + (0.5 / float(palSize.y));
+	float xUV = idxPalette / float(palSize.x) + (0.5 / float(palSize.x));
+	float yUV = palAdd / float(palSize.y) + (0.5 / float(palSize.y));
 	vec2 palUV = vec2(xUV, yUV);
 	
 	if (!colorBlending)
@@ -85,8 +80,8 @@ vec4 applyPalette(vec4 sprTex)
 		float nyxUV = idxCycNext / float(palSize.x);
 		
 		// Center next index sampler
-		float nxUV = fract(nyxUV) + (0.5 / float(palSize.x));
-		float nyUV = floor(nyxUV) / float(palSize.y) + (0.5 / float(palSize.y));
+		float nxUV = idxCycNext / float(palSize.x) + (0.5 / float(palSize.x));
+		float nyUV = palAdd / float(palSize.y) + (0.5 / float(palSize.y));
 		vec2 nxtUV = vec2(nxUV, nyUV);
 		
 		// Blend result
