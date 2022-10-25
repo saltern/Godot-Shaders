@@ -51,9 +51,6 @@ vec4 applyPalette(vec4 sprTex)
 			case 2:		// Palette-wide color cycling
 				idxPalette = floor(idxPalette + idxCycle);
 				idxCycNext = idxPalette + 1.0;
-				
-				
-				
 				break;
 		}
 		// Wrap indices back within palette bounds, skipping index 0
