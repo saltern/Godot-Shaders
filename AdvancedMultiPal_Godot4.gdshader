@@ -73,9 +73,6 @@ vec4 applyPalette(vec4 sprTex)
 	}
 	else
 	{
-		// Next cycle step sampler UV
-		float nyxUV = idxCycNext / float(palSize.x);
-		
 		// Center next index sampler
 		float nxUV = idxCycNext / float(palSize.x) + (0.5 / float(palSize.x));
 		float nyUV = palAdd / float(palSize.y) + (0.5 / float(palSize.y));
