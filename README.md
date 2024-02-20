@@ -24,3 +24,9 @@ Godot 3 and 4 files are provided for this variant as well.
 
 * Godot 3: AdvancedMultiPal_Godot3.gdshader
 * Godot 4: AdvancedMultiPal_Godot4.gdshader
+
+### Adapt To Palette ###
+A shader that adapts each pixel covered by its ColorRect to a user-provided palette. Rudimentary.
+Performance decreases as the dimensions of the ColorRect and the palette increase.
+
+* Godot 4: AdaptToPalette.gdshader
